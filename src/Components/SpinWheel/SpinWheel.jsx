@@ -13,14 +13,14 @@ const SpinWheel = ({ selectedId, onSelect }) => {
   const pullDistance = 15;
 
   const blueShades = [
-    "#87CEEB",
-    "#5DADE2",
-    "#3498DB",
-    "#2E86C1",
-    "#1B4965",
-    "#0D3B66",
-    "#2874A6",
-    "#21618C",
+    "#90e0ef",
+    "#90e0ef",
+    "#00b4d8",
+    "#00b4d8",
+    "#00b4d8",
+    "#0177b6",
+    "#0177b6",
+    "#0177b6",
   ];
 
   const polar = (r, deg, offset = 0) => {
@@ -224,23 +224,6 @@ const SpinWheel = ({ selectedId, onSelect }) => {
                       className="pointer-events-none transition-all duration-300"
                     />
 
-                    <rect
-                      x={labelPos.x - 65}
-                      y={labelPos.y - 20}
-                      width="130"
-                      height="40"
-                      fill="white"
-                      opacity="0.95"
-                      rx="5"
-                      className="cursor-pointer transition-all duration-300"
-                      onMouseEnter={() => setHoveredId(section.id)}
-                      onMouseLeave={() => setHoveredId(null)}
-                      onClick={() => {
-                        setLocalSelectedId(section.id);
-                        if (onSelect) onSelect(section);
-                      }}
-                    />
-
                     <text
                       x={labelPos.x}
                       y={labelPos.y + 5}
@@ -254,7 +237,17 @@ const SpinWheel = ({ selectedId, onSelect }) => {
                         if (onSelect) onSelect(section);
                       }}
                     >
-                      {section.title}
+                      {section.displayTitle
+                        ? section.displayTitle.map((line, idx) => (
+                            <tspan
+                              key={idx}
+                              x={labelPos.x}
+                              dy={idx === 0 ? 0 : "1.2em"}
+                            >
+                              {line}
+                            </tspan>
+                          ))
+                        : section.title}
                     </text>
                   </g>
                 );
@@ -316,6 +309,30 @@ const SpinWheel = ({ selectedId, onSelect }) => {
                 fill="url(#centerGradient)"
                 stroke="#e0e0e0"
                 strokeWidth="3"
+                className="cursor-pointer transition-all duration-300 hover:opacity-80"
+                onClick={() => {
+                  setLocalSelectedId(9);
+                  if (onSelect) {
+                    onSelect({
+                      id: 9,
+                      title: "Pre Requisites",
+                      short: "Leader",
+                      description:
+                        "Before true mindfulness begins, every leader should recognize the Five Hindrances that already exist within — subtle forces that cloud clarity and weaken judgment:",
+                      leadershipApplication: [
+                        "Sensual Desire – craving for comfort, pleasure, or external satisfaction",
+                        "Ill-Will – anger, irritation, or resistance toward challenges",
+                        "Sloth and Torpor – mental fatigue, dullness, or lack of energy",
+                        "Restlessness and Remorse – anxiety about the future and regret about the past",
+                        "Cognitive Dissonance (Doubt) – inner conflict and uncertainty about oneself or the practice",
+                        "Awareness of these inner barriers is the first step — transforming reaction into reflection, and reflection into mindful leadership.",
+                      ],
+                      hideLeadershipHeader: true,
+                      hideId: true,
+                      showAsParagraph: true,
+                    });
+                  }
+                }}
               />
 
               <text
