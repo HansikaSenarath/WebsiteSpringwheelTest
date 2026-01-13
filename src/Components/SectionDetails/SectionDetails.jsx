@@ -5,10 +5,10 @@ const SectionDetails = ({ section }) => {
   if (!section) return null;
 
   return (
-    <div className="flex flex-col gap-8 max-w-2xl bg-white p-8 isolate">
+    <div className="flex flex-col gap-8 w-full bg-white px-4 py-8 pl-30 isolate">
       {/* Title Section */}
       <div className="bg-transparent">
-        <h2 className="text-5xl font-bold text-[#00346e] bg-transparent">
+        <h2 className="text-5xl font-bold text-[#00346e] bg-transparent whitespace-nowrap ">
           {section.title}
         </h2>
       </div>
@@ -19,7 +19,7 @@ const SectionDetails = ({ section }) => {
           {/* ID Badge */}
           <div className="flex-shrink-0 bg-transparent">
             <div className="flex items-center justify-center bg-transparent">
-              <span className="text-[#00346e] text-3xl font-bold bg-transparent">
+              <span className="text-[#00346e] items-center text-5xl font-bold bg-transparent">
                 {section.id}
               </span>
             </div>
@@ -38,7 +38,6 @@ const SectionDetails = ({ section }) => {
       {section.leadershipApplication &&
         section.leadershipApplication.length > 0 && (
           <div className="mt-6 space-y-4 bg-transparent">
-            
             {/* Arrow + Title */}
             <div className="flex flex-col items-center gap-2 bg-transparent">
               <img
@@ -53,7 +52,6 @@ const SectionDetails = ({ section }) => {
 
             {/* ✅ GRADIENT CARD (FULLY ISOLATED) */}
             <div className="rounded-xl p-8 shadow-md isolate bg-gradient-to-r from-white via-white to-[#bbe7f4]">
-              
               {/* Force-remove index.css background */}
               <div className="space-y-4 !bg-transparent">
                 {section.leadershipApplication.map((item, index) => (
