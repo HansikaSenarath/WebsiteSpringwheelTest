@@ -6,7 +6,7 @@ const SpinWheel = ({ selectedId, onSelect }) => {
   const [localSelectedId, setLocalSelectedId] = useState(selectedId || 1);
   const [hoveredId, setHoveredId] = useState(null);
 
-  const size = 450;
+  const size = 420;
   const radius = size / 2;
   const innerRadius = 0;
   const angle = 360 / spinWheelData.length;
@@ -63,7 +63,7 @@ const SpinWheel = ({ selectedId, onSelect }) => {
       <div className="w-5/7 overflow-visible flex justify-center py-2">
         <div className="relative overflow-visible">
           <svg
-            width={size + 170}
+            width={size + 150}
             height={size + 170}
             className="select-none overflow-visible"
           >
@@ -133,8 +133,6 @@ const SpinWheel = ({ selectedId, onSelect }) => {
                     <path
                       d={buildPath(start, end, isEmbossed)}
                       fill={color}
-                      stroke="#ffffff"
-                      strokeWidth="3"
                       opacity={isEmbossed ? 1 : 0.85}
                       filter={isEmbossed ? "url(#dropShadow)" : "none"}
                       className="cursor-pointer transition-all duration-300"
@@ -171,7 +169,7 @@ const SpinWheel = ({ selectedId, onSelect }) => {
                       y1={radius}
                       x2={iconPos.x}
                       y2={iconPos.y}
-                      stroke="#ffffff"
+                      stroke="#D97706"
                       strokeWidth="1.5"
                       strokeDasharray="4,4"
                       opacity="0.5"
@@ -256,7 +254,7 @@ const SpinWheel = ({ selectedId, onSelect }) => {
               {(() => {
                 const titleText = "Supernormal Leader";
                 const titleRadius = radius + 5;
-                const startAngle = -60;
+                const startAngle = -30;
                 const angleSpan = 50;
 
                 return (
