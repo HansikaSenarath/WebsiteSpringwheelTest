@@ -13,7 +13,9 @@ const SectionDetails = ({ section }) => {
             {section.displayTitle.map((line, idx) => (
               <h2
                 key={idx}
-                className="text-5xl font-bold text-[#00346e] bg-transparent whitespace-nowrap"
+                className={`${
+                  section.id === 7 ? "text-3xl" : "text-5xl"
+                } font-bold text-[#00346e] bg-transparent whitespace-nowrap`}
               >
                 {line}
               </h2>
