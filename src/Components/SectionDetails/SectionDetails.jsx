@@ -20,7 +20,7 @@ const SectionDetails = ({ section }) => {
             ))}
           </div>
         ) : (
-          <h2 className="text-5xl font-bold text-[#00346e] bg-transparent whitespace-nowrap">
+          <h2 className="text-3xl font-bold text-[#00346e] bg-transparent whitespace-nowrap">
             {section.title}
           </h2>
         )}
@@ -51,22 +51,24 @@ const SectionDetails = ({ section }) => {
                 {section.displayDescription.map((line, idx) => (
                   <p
                     key={idx}
-                    className="text-gray-700 text-bold text-[20px] leading-relaxed font-medium bg-transparent"
+                    className="text-gray-700 text-bold text-[15px] leading-relaxed font-medium bg-transparent"
                   >
                     {line}
                   </p>
                 ))}
               </div>
             ) : (
-              <p className="text-gray-700 text-bold text-[20px] leading-relaxed font-medium bg-transparent">
-                {section.description
-                  .split("Five Hindrances")
-                  .map((part, index) => (
-                    <span key={index}>
-                      {part}
-                      {index === 0 && <strong>Five Hindrances</strong>}
-                    </span>
-                  ))}
+              <p className="text-gray-700 text-bold text-[15px] leading-relaxed font-medium bg-transparent">
+                {section.id === 9
+                  ? section.description
+                      .split("Five Hindrances")
+                      .map((part, index) => (
+                        <span key={index}>
+                          {part}
+                          {index === 0 && <strong>Five Hindrances</strong>}
+                        </span>
+                      ))
+                  : section.description.split("Five Hindrances")[0]}
               </p>
             )}
           </div>
@@ -101,7 +103,7 @@ const SectionDetails = ({ section }) => {
                     {section.leadershipApplication.map((item, index) => (
                       <p
                         key={index}
-                        className="text-gray-600 text-[20px] leading-relaxed font-medium !bg-transparent mb-3"
+                        className="text-gray-600 text-[15px] leading-relaxed font-medium !bg-transparent mb-3"
                       >
                         {item}
                       </p>
@@ -121,7 +123,7 @@ const SectionDetails = ({ section }) => {
                       </div>
 
                       {/* TEXT AREA – index.css bg REMOVED */}
-                      <p className="text-gray-600 text-[20px] leading-relaxed font-medium flex-1 !bg-transparent">
+                      <p className="text-gray-600 text-[15px] leading-relaxed font-medium flex-1 !bg-transparent">
                         {item}
                       </p>
                     </div>
